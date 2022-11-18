@@ -1,0 +1,122 @@
+@import 'colors';
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 20px;
+}
+
+.bio__container {
+  height: 85vh;
+  background-color: $black;
+  position: relative;
+
+  header {
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .social {
+      display: grid;
+      grid-template-columns: 20px 20px 20px 20px;
+      grid-gap: 15px;
+
+      svg {
+        stroke-width: 1px;
+      }
+    }
+  }
+}
+
+.bio__block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  margin: 100px auto 0 auto;
+  font-family: JetBrains Mono, monospace;
+
+  figure {
+    position: relative;
+    height: 280px;
+    width: 280px;
+    margin: 0;
+  }
+
+  &_about {
+    max-width: 500px;
+
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 100%;
+      margin-bottom: 5px;
+    }
+
+    small {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba($white, 0.4);
+      line-height: 12px;
+
+      span {
+        background: $pink_gradient;
+        cursor: pointer;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 400;
+      margin-top: 18px;
+      line-height: 1.2;
+    }
+
+    &_techs {
+      margin-top: 25px;
+
+      > div {
+        margin-top: 5px;
+      }
+
+      small {
+        font-size: 10px;
+        font-weight: 300;
+        position: relative;
+        margin-left: 38px;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 30px;
+          height: 1px;
+          top: 50%;
+          right: 0;
+          left: -38px;
+          background-color: rgba($white, 0.08);
+        }
+      }
+    }
+  }
+}
+
+.timeline__container {
+  background: $black_gradient;
+  height: 100%;
+  padding: 35px 0;
+
+  h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}
