@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
-const getIsMobile = () => window.innerWidth <= 600
+const getIsMobile = () =>
+  typeof window !== 'undefined' ? window.innerWidth <= 600 : false
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(getIsMobile())
