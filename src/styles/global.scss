@@ -6,4 +6,11 @@ html, body {
   box-sizing: border-box;
   background-color: $black;
   color: $white;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+  outline: none;
 }
