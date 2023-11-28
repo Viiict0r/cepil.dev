@@ -20,7 +20,7 @@
   border: 1px solid #363636;
   width: fit-content;
   height: fit-content;
-  max-width: 446px;
+  max-width: 430px;
   position: relative;
   overflow: hidden;
   transition: background 300ms ease-in-out;
@@ -119,6 +119,11 @@
       text-align: center;
       display: grid;
       gap: 10px;
+      padding: 0 30px;
+
+      @include respond-to('sm') {
+        padding: 0;
+      }
 
       p {
         color: #A3A3A3;
