@@ -7,9 +7,6 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')]
   },
-  experimental: {
-    appDir: true
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

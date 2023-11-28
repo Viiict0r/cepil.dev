@@ -1,105 +1,75 @@
 import React from 'react'
+import Image from 'next/image'
 
-import { FiLinkedin, FiMail, FiGithub, FiInstagram } from 'react-icons/fi'
+import { FiLinkedin, FiMail, FiGithub } from 'react-icons/fi'
 
-import styles from '../styles/Home/Home.module.scss'
-import { MainTechs } from '../components/main-techs'
-import { Picture } from '../components/picture'
-import { Timeline } from '../components/timeline'
-import { FadeInUp } from '../components/animations/fadeInUp'
+import styles from './styles.module.scss'
+import { PointerPos } from '../components/pointer-pos'
 
-import { bio } from '../utils/bio'
-import { Arrow, BackToTop } from '../components/arrow'
-
-const social = {
+const SOCIAL = {
   LINKEDIN: 'https://www.linkedin.com/in/victorhugocepil/',
-  MAIL: 'mailto:victorh.cepil@hotmail.com',
-  GITHUB: 'https://github.com/Viiict0r',
-  INSTAGRAM: 'https://instagram.com/victorh.cepil'
+  MAIL: 'mailto:victor@cepil.dev',
+  GITHUB: 'https://github.com/Viiict0r'
 }
 
 export default function Page() {
   return (
-    <main>
-      <section className={`${styles.container} ${styles.bio__container}`}>
-        <header>
-          <div className={styles.social}>
-            <a href={social.LINKEDIN} target="_blank" rel="noreferrer">
-              <FiLinkedin size={20} />
-            </a>
-            <a href={social.MAIL} target="_blank" rel="noreferrer">
-              <FiMail size={20} />
-            </a>
-            <a href={social.GITHUB} target="_blank" rel="noreferrer">
-              <FiGithub size={20} />
-            </a>
-            <a href={social.INSTAGRAM} target="_blank" rel="noreferrer">
-              <FiInstagram size={20} />
-            </a>
-          </div>
-        </header>
-
-        <div className={styles.bio__block}>
-          <Picture />
-          <div className={styles.bio__block_about}>
-            <FadeInUp duration={0.4}>
-              <h1>Victor Hugo Cépil</h1>
-            </FadeInUp>
-            <FadeInUp duration={0.4} delay={0.1}>
-              <small>FRONT-END DEVELOPER</small>
-            </FadeInUp>
-            <FadeInUp duration={0.4} delay={0.3}>
-              <p>{bio}</p>
-            </FadeInUp>
-
-            <div className={styles.bio__block_about_techs}>
-              <FadeInUp duration={0.4} delay={0.5}>
-                <small>MAIN TECHNOLOGIES</small>
-              </FadeInUp>
-              <div>
-                <MainTechs />
-              </div>
+    <main className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.card__effect} />
+        <div className={styles.card_header}>
+          <div className={styles.card_header__dot} />
+          <div className={styles.card_header__dot} />
+          <div className={styles.card_header__dot} />
+        </div>
+        <div className={styles.card_body}>
+          <div className={styles.card_body__name_and_photo}>
+            <Image
+              src="/assets/photo.png"
+              alt="Victor Hugo"
+              width={100}
+              height={100}
+            />
+            <div className={styles.card_body__name_and_photo__name}>
+              <h3>Victor Hugo Cépil</h3>
+              <span>DESENVOLVEDOR FRONT-END</span>
             </div>
           </div>
+          <div className={styles.card_body__about}>
+            <p>
+              Com 23 anos de idade e pouco mais de <span>5 anos</span> de
+              experiência profissional como desenvolvedor, já atuei em diversos
+              projetos de software que me fizeram aperfeiçoar minhas habilidades
+              com desenvolvimento web.
+            </p>
+            <p>
+              Iniciei minha jornada profissional como full-stack, atuando em
+              projetos de Web Scraping utilizando Python, HTML, CSS & jQuery.
+              Porém ao decorrer dos anos, direcionei minha carreira para o mundo
+              front-end, e hoje trabalho com todo ecossistema React.
+            </p>
+          </div>
+          <div className={styles.card_body__social}>
+            <a href={SOCIAL.LINKEDIN} target="_blank" rel="noreferrer">
+              <div className={styles.card_body__social_item}>
+                <FiLinkedin size={18} />
+              </div>
+            </a>
+            <a href={SOCIAL.MAIL}>
+              <div className={styles.card_body__social_item}>
+                <FiMail size={18} />
+              </div>
+            </a>
+            <a href={SOCIAL.GITHUB} target="_blank" rel="noreferrer">
+              <div className={styles.card_body__social_item}>
+                <FiGithub size={18} />
+              </div>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <Arrow />
-      </section>
-
-      <section className={`${styles.timeline__container}`}>
-        <div className={styles.container}>
-          <h1>TIMELINE</h1>
-          <p className={styles.desc}>
-            Empresas e posições por onde passei ao longo dos anos
-          </p>
-          <Timeline />
-        </div>
-
-        <BackToTop />
-      </section>
-
-      <footer className={styles.footer}>
-        <div className={styles.citation}>
-          <i>&quot;Keep it simple, stupid!&quot;</i>
-          <FadeInUp duration={0.5} inViewOnly>
-            <span>- Clarence Johnson</span>
-          </FadeInUp>
-        </div>
-        <div className={styles.footer__social}>
-          <a href={social.LINKEDIN} target="_blank" rel="noreferrer">
-            <FiLinkedin size={20} />
-          </a>
-          <a href={social.MAIL} target="_blank" rel="noreferrer">
-            <FiMail size={20} />
-          </a>
-          <a href={social.GITHUB} target="_blank" rel="noreferrer">
-            <FiGithub size={20} />
-          </a>
-          <a href={social.INSTAGRAM} target="_blank" rel="noreferrer">
-            <FiInstagram size={20} />
-          </a>
-        </div>
-      </footer>
+      <PointerPos />
     </main>
   )
 }

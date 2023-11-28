@@ -1,12 +1,24 @@
 @import 'colors';
+@import 'mixins';
 
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: $black;
+  background: $backgroud_gradient;
   color: $white;
-  scroll-behavior: smooth;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Lexend', sans-serif;
+
+  @include respond-to('sm') {
+    height: 100%;
+  }
+}
+
+*::selection {
+  background: #fff;
+  color: #363636;
 }
 
 a {
